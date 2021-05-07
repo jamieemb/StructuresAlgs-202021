@@ -8,6 +8,7 @@ public class Main {
         Tree tree = new Tree();
 
         do {
+
             // ### User Menu ###
             System.out.println("--------------------");
             System.out.println("[1] Add a new Pet");
@@ -89,8 +90,14 @@ public class Main {
                     petName = Input.getString("Enter Pet Type of the Product >> ");
                     if (tree.find(petName)) {
                         String remove = Input.getString("Enter the Code of the Product to be Deleted >> ");
-                        tree.getNode(petName, tree.root).getPetObject().getProducts().deleteProduct(remove);
-                        System.out.println("Product Deleted");
+                        if (tree.getNode(petName, tree.root).getPetObject().getProducts().findProduct(remove)){
+                            tree.getNode(petName, tree.root).getPetObject().getProducts().deleteProduct(remove);
+                            System.out.println("Product Deleted");
+                        }
+                        else{
+                            System.out.println("Product not found");
+                        }
+
                     } else {
                         System.out.println("Pet Type Not Found");
                     }
@@ -99,8 +106,14 @@ public class Main {
                 // Remove a pet type from the system
                 case "8" -> {
                     petName = Input.getString("Enter Pet Type to be Deleted >> ");
-                    tree.deleteNode(petName);
-                    System.out.println("Pet Removed");
+
+                    if (tree.find(petName)){
+                        tree.deleteNode(petName);
+                        System.out.println("Pet Removed");
+                    }
+                    else {
+                        System.out.println("Pet Type Not Found in the System");
+                    }
                 }
             }
         } while (!userSelection.equals("0"));

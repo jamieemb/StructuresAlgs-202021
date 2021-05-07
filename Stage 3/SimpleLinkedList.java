@@ -56,7 +56,7 @@ public class SimpleLinkedList {
         ListNode current = this.first;
 
         while (current != null) {
-            System.out.println(current.getProducts().getName() + " " + current.getProducts().getCode() + " " + current.getProducts().getStockQuantity() );
+            System.out.println(current.getProducts().getName() + " " + current.getProducts().getCode() + " " + current.getProducts().getStockQuantity());
             current = current.getNext();
         }
     }
@@ -79,6 +79,31 @@ public class SimpleLinkedList {
                 return;
             }
             current = current.next;
+        }
+    }
+
+    // Find if a product exists within the system
+    public boolean findProduct(String searchTerm) {
+        int counter = 0;
+        // If the list contains no Items
+        if (first == null) {
+            counter = 0;
+        }
+        ListNode current = first;
+
+        // Logic for finding products from search term and adding them to an Array of positive results
+        while (current != null) {
+            if (current.getProducts().getCode().equals(searchTerm)) {
+                counter++;
+            }
+            current = current.getNext();
+        }
+
+        if (counter > 0){
+            return true;
+        }
+        else{
+            return false;
         }
     }
 }
