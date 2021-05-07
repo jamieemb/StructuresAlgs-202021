@@ -1,3 +1,5 @@
+package main;
+
 public class Tree {
 
 
@@ -8,9 +10,7 @@ public class Tree {
         root = null;
     }
 
-
     // ### Methods ###
-
     // Insert - Inserts a new node into the tree
     public boolean insert(String name){
         if (root == null) {
@@ -43,7 +43,6 @@ public class Tree {
             System.out.println("System doesn't contain any Pets");
         }
         if (root != null) {
-            System.out.println("Inorder:");
             root.inorder();
         }
     }
@@ -120,10 +119,4 @@ public class Tree {
         current.right = deleteNodeHelper(current.right, name);
         return current;
     }
-
-
-
-
-
-
 }

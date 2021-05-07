@@ -1,3 +1,5 @@
+package main;
+
 public class Node {
 
     String name;
@@ -22,7 +24,6 @@ public class Node {
     }
 
     // ### Methods ###
-
     // Insert - Inserts a new node into the tree
     public boolean insert(String name) {
         boolean added = false;

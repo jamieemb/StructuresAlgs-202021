@@ -1,3 +1,5 @@
+package main;
+
 public class SimpleLinkedList {
 
 
@@ -29,7 +31,6 @@ public class SimpleLinkedList {
         if (this.getFirst() == null) {
             this.first = new ListNode(newProduct);
         }
-
         ListNode current = this.first;
 
         // Iterates through current list, checks for products matching code of current input object and increments counter if match is found
@@ -74,6 +75,7 @@ public class SimpleLinkedList {
         while (current != null) {
             if (current.getNext().getProducts().getCode().equals(code)) {
                 current.next = current.next.next;
+
                 return;
             }
             current = current.next;

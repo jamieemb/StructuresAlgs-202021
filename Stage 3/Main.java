@@ -1,3 +1,5 @@
+package main;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -35,7 +37,6 @@ public class Main {
                     } else {
                         System.out.println("Pet Type Already in the System.");
                     }
-
                 }
 
                 // Add products for a specific pet type
@@ -63,7 +64,6 @@ public class Main {
                     } else {
                         System.out.println("We DON'T stock products for " + petName + "'s");
                     }
-
                 }
 
                 // Display all types of pets that the company provides products for
@@ -72,7 +72,13 @@ public class Main {
                 // Display all products stocked for a specific pet type
                 case "5" -> {
                     petName = Input.getString("Enter Pet Type You Would Like to View Products For >> ");
-                    tree.getNode(petName, tree.root).getPetObject().getProducts().displayProducts();
+
+                    if (tree.find(petName)){
+                        tree.getNode(petName, tree.root).getPetObject().getProducts().displayProducts();
+                    }
+                    else {
+                        System.out.println("Pet Does not Exist");
+                    }
                 }
 
                 // Display all products for all pets
@@ -84,6 +90,7 @@ public class Main {
                     if (tree.find(petName)) {
                         String remove = Input.getString("Enter the Code of the Product to be Deleted >> ");
                         tree.getNode(petName, tree.root).getPetObject().getProducts().deleteProduct(remove);
+                        System.out.println("Product Deleted");
                     } else {
                         System.out.println("Pet Type Not Found");
                     }
@@ -93,6 +100,7 @@ public class Main {
                 case "8" -> {
                     petName = Input.getString("Enter Pet Type to be Deleted >> ");
                     tree.deleteNode(petName);
+                    System.out.println("Pet Removed");
                 }
             }
         } while (!userSelection.equals("0"));

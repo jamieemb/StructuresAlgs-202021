@@ -1,3 +1,5 @@
+package main;
+
 public class ListNode {
 
     ListNode next;
@@ -13,7 +15,6 @@ public class ListNode {
     public ListNode getNext() {
         return next;
     }
-
 
     public Products getProducts() {
         return products;
